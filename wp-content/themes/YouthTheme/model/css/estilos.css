@@ -1,0 +1,20 @@
+
+/*
+    COLORS REFERENCE
+    --iyn-purple = #612E6F
+    --iyn-blue = #271F56
+    --iyn-orange = #F3702C
+    --iyn-yellow = #ECE825
+*/
+
+:root {
+    --iyn-purple: #612E6F;
+    --iyn-blue: #271F56;
+    --iyn-orange: #F3702C;
+    --iyn-yellow: #ECE825;
+}
+
+.iyn-bg-emphasis {
+    background-color: var(--iyn-purple);
+    color: white;
+}
