@@ -11,24 +11,40 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'youth-theme' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'youth-theme' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'youth-theme' ), 'youth-theme', '<a href="http://underscores.me/">Exequiel Beker</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer id="bottom-footer" class="container">
+    <hr>
 
+    <!--Menu main content area -->
+    <div class="row justify-content-between">
+        <div class="col-md-4">
+            <?php wp_nav_menu( 
+                              array( 
+                              'theme_location' => 'footer_links',
+                              'container' => 'div',
+                              'container_id' => 'footer-links',
+                              'menu_class' => 'navbar-nav align-items-baseline',
+                              'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+                              'walker'=> new WP_Bootstrap_Navwalker(),)
+                );?>
+        </div>
+
+        <!-- Social networks links -->
+        <div class="col-md-4">
+            <h4 class="text-center mb-2"><?php _e( 'Seguinos en las redes sociales', 'youth' ); ?></h4>
+			<?php wp_nav_menu( 
+                              array( 
+                              'theme_location' => 'footer_social',
+                              'container' => 'div',
+                              'container_id' => 'footer-links',
+                              'menu_class' => 'navbar-nav align-items-baseline flex-row justify-content-around',
+                              'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+                              'walker'=> new WP_Bootstrap_Navwalker(),)
+                );?>
+        </div>
+    </div>
+</footer>
 <?php wp_footer(); ?>
 
 </body>
+
 </html>
