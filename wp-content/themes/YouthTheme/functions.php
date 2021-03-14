@@ -148,10 +148,10 @@ function youth_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
+	
 	/* Boostrap icons and styles*/
-	wp_enqueue_style( 'bootstrap_css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', array(), '5.0.0-beta2', true);
-	wp_enqueue_style( 'bootstrap_icons_css', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css', array(), '1.3.0', true);
+	wp_enqueue_style( 'bootstrap_css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', array(), '5.0.0-beta2');
+	wp_enqueue_style( 'bootstrap_icons_css', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css', array(), '1.4.0');
 	/* Boostrap JS bundle */
 	wp_enqueue_script( 'bootstrap_bundle_js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js', array(), '5.0.0-beta2', true);
 }
@@ -188,3 +188,14 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Register Custom Navigation Walker
  */
 require_once get_template_directory() . '/inc/bootstrap-navwalker.php';
+
+function youth_category_list() {
+	$cat = get_the_category();
+	foreach(array_slice( $cat , 0, 3, true ) as $category) {
+		echo '<div class="col-md-auto">';
+		echo '<a class="badge bg-primary rounded-pill text-decoration-none text-light p-1" ';
+		echo 'href='.get_category_link( $category->term_id ). '>';
+		echo $category->name;
+		echo '<div>';
+	}
+}
