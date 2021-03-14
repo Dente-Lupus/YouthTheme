@@ -148,6 +148,12 @@ function youth_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	/* Boostrap icons and styles*/
+	wp_enqueue_style( 'bootstrap_css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', array(), '5.0.0-beta2', true);
+	wp_enqueue_style( 'bootstrap_icons_css', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css', array(), '1.3.0', true);
+	/* Boostrap JS bundle */
+	wp_enqueue_script( 'bootstrap_bundle_js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js', array(), '5.0.0-beta2', true);
 }
 add_action( 'wp_enqueue_scripts', 'youth_theme_scripts' );
 
@@ -178,3 +184,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Register Custom Navigation Walker
+ */
+require_once get_template_directory() . '/inc/bootstrap-navwalker.php';
