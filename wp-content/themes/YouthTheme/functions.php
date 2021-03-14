@@ -50,7 +50,9 @@ if ( ! function_exists( 'youth_theme_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'youth-theme' ),
+				'primary_navbar' => esc_html__( 'Primary', 'youth-theme' ),
+				'footer_links' => esc_html__( 'Footer links', 'youth-theme' ),
+				'footer_social' => esc_html__( 'Footer social networks', 'youth-theme' ),
 			)
 		);
 
